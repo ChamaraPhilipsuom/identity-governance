@@ -26,6 +26,7 @@ import org.wso2.carbon.identity.application.authentication.framework.context.Aut
 import org.wso2.carbon.identity.application.authentication.framework.context.SessionContext;
 import org.wso2.carbon.identity.application.authentication.framework.model.AuthenticatedUser;
 import org.wso2.carbon.identity.application.authentication.framework.util.FrameworkConstants;
+import org.wso2.carbon.identity.application.common.model.User;
 import org.wso2.carbon.identity.captcha.exception.CaptchaException;
 import org.wso2.carbon.identity.captcha.util.CaptchaConstants;
 import org.wso2.carbon.identity.captcha.util.CaptchaUtil;
@@ -67,7 +68,7 @@ public class FailLoginAttemptValidator extends AbstractIdentityMessageHandler im
         if ("BasicAuthenticator".equals(authenticationContext.getCurrentAuthenticator()) && map != null && map.get
                 (FrameworkConstants.AnalyticsAttributes.USER) != null) {
 
-            AuthenticatedUser failedUser = (AuthenticatedUser) map.get(FrameworkConstants.AnalyticsAttributes.USER);
+            User failedUser = (User) map.get(FrameworkConstants.AnalyticsAttributes.USER);
             String username = failedUser.getUserName();
             if (!StringUtils.isBlank(failedUser.getUserStoreDomain()) &&
                     !IdentityUtil.getPrimaryDomainName().equals(failedUser.getUserStoreDomain())) {
