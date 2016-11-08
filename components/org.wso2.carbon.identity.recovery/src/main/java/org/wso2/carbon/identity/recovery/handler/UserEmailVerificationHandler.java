@@ -63,7 +63,7 @@ public class UserEmailVerificationHandler extends AbstractEventHandler {
 
     @Override
     public void handleEvent(Event event) throws IdentityEventException {
-//check
+//check second
         Map<String, Object> eventProperties = event.getEventProperties();
         String userName = (String) eventProperties.get(IdentityEventConstants.EventProperty.USER_NAME);
         UserStoreManager userStoreManager = (UserStoreManager) eventProperties.get(IdentityEventConstants.EventProperty.USER_STORE_MANAGER);
